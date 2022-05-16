@@ -6,10 +6,9 @@ import webbrowser
 
 init()
 
-#RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE
-
-reklamaImage = ["images/index.jpg", "images/indssex.jpg", "images/imaвges.jpg", "images/maxresdefault.jpg", "images/images.jpg"]
+reklamaImage = ["family_hairdress.jpg", "pornhub.jpg", "hren.jpg", "oldSpice.jpg", "leather.jpg"]
 reklamaURl = ["https://haircutexpress.eu/ru/", "https://rt.pornhub.com", "https://abcfood.net/ru/product-category/hren-gorchica/hren/", "https://oldspice.com/", "https://www.tavro-kozha.ru/catalog/all/"]
+
 x = 1
 
 while True:
@@ -20,9 +19,15 @@ while True:
 	x += 1
 
 	if y == 0:
-		j = random.randrange(5)
+		rIndex = random.randrange(5)
 
-		os.startfile(reklamaImage[j])
+		#получение дериктории с кодом и подальшей обработкой
+
+		direcrory = os.path.abspath(__file__)
+		imageDir = direcrory.replace( 'main.py', "images\\" )
+		reklamaImg = imageDir + reklamaImage[rIndex]
+
+		os.startfile( reklamaImg )
 
 		print("5...")
 		time.sleep(1)
@@ -46,7 +51,7 @@ while True:
 			if reklamaInput == 1:
 				break
 			elif reklamaInput == 2:
-				webbrowser.open(reklamaURl[j], new=0, autoraise = False)
+				webbrowser.open(reklamaURl[rIndex], new=0, autoraise = False)
 				input()
 				break
 			else:
